@@ -13,12 +13,8 @@ function App() {
   
   const gamingBoard=history[currentMove];
 
-  const winner= calculateWinner(gamingBoard.Squares);
-
-  console.log({history,currentMove});
- 
-
-   
+  const {winner,winningSquares}= calculateWinner(gamingBoard.Squares);
+  
    const handleSquareClick= clickposition => {
     // this if condtion in handleSquareClick checks if the square is allready been clicked 
     // if it does it will stop the function to invoke again for that square
@@ -59,7 +55,8 @@ const onNewGameStart=()=> {
         <StatusMessage winner={winner} gamingBoard={gamingBoard}/>
          <Board 
          Squares={gamingBoard.Squares} 
-         handleSquareClick={handleSquareClick} 
+         handleSquareClick={handleSquareClick}
+         winningSquares={winningSquares}
          />
          <button type="button" onClick={onNewGameStart} className={
             `btn-reset ${winner ? 'active' :' '}`
@@ -67,9 +64,7 @@ const onNewGameStart=()=> {
          <h2>Current Game History</h2>
         <History history={history} moveTo={moveTo} currentMove={currentMove} />
       </div>
-     
-    
-    
+      
   );
 }
 
