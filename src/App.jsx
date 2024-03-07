@@ -51,7 +51,7 @@ const onNewGameStart=()=> {
   return (
     
       <div className="app">
-        
+        <h1>Tik <span className="text-green">Tac</span> Toe</h1>
         <StatusMessage winner={winner} gamingBoard={gamingBoard}/>
          <Board 
          Squares={gamingBoard.Squares} 
@@ -61,7 +61,8 @@ const onNewGameStart=()=> {
          <button type="button" onClick={onNewGameStart} className={
             `btn-reset ${winner ? 'active' :' '}`
          }>Start New Game</button>
-         <h2>Current Game History</h2>
+         <h2 style={ {
+            fontWeight:'normal'} }>Current Game History</h2>
         <History history={history} moveTo={moveTo} currentMove={currentMove} />
       </div>
       
