@@ -20,4 +20,5 @@ const History=({history,moveTo,currentMove})=>{
     );
 };
 
+
 export default History;
